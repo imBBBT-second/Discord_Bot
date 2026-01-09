@@ -3,6 +3,7 @@ from discord import app_commands
 from discord.ext import commands
 import datetime
 import asyncio
+import os
 
 # 1. 봇 설정
 class MyBot(commands.Bot):
