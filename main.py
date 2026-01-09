@@ -119,4 +119,12 @@ async def on_app_command_error(interaction: discord.Interaction, error: app_comm
     if isinstance(error, app_commands.MissingPermissions):
         await interaction.response.send_message("명령어 사용 권한 없음", ephemeral=True)
 
-bot.run('MTQ1OTEyMDk2OTcxNjIwMzU2NA.GnS_V6.IZL7NoI2YPTKWi5Ge8gy9V-BjAV83S02I7ul4s')
+token = os.getenv('TOKEN')
+
+if __name__ == "__main__":
+    if token:
+        bot.run(token)
+    else:
+        # 만약 환경 변수가 없다면 여기에 직접 토큰을 넣어서 테스트할 수도 있어
+        print("⚠️ 환경 변수 'TOKEN'을 찾을 수 없어. 직접 입력 모드로 시도할게.")
+        # bot.run('여기에_직접_토큰을_입력해도_돼')
