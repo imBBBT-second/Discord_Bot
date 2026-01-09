@@ -127,4 +127,4 @@ if __name__ == "__main__":
         bot.run(token)
     else:
         # 만약 환경 변수가 없다면 여기에 직접 토큰을 넣어서 테스트할 수도 있어
-        print("환경 변수 "TOKEN" 미발견)
+        print("환경 변수 'TOKEN' 미발견)
