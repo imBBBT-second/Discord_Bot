@@ -60,9 +60,9 @@ async def apply_punishment(member: discord.Member, reason: str, current_channel:
         f"@here\n"
         f"# 경고 공지\n"
         f"# {member.mention}\n"
-        f"## 사유 : [{reason}]\n"
-        f"## 강도 : [{punishment}]\n"
-        f"### 날짜 : [{datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')}]"
+        f"## 사유 : {reason}\n"
+        f"## 강도 : {punishment}\n"
+        f"### 날짜 : {datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')}"
     )
     
     # 지정된 채널에 공지 전송
@@ -78,13 +78,6 @@ async def apply_punishment(member: discord.Member, reason: str, current_channel:
             await member.ban(reason=reason, delete_message_days=7)
     except Exception as e:
         print(f"❌ 처벌 적용 오류: {e}")
-
-    # 공지는 3분 후 삭제
-    await asyncio.sleep(180)
-    try:
-        await notice_msg.delete()
-    except:
-        pass
 
 @bot.event
 async def on_ready():
